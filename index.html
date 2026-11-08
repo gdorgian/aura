@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aura: Private Health App for iPhone | Sleep, Recovery, HRV, Works with WHOOP</title>
+<meta name="description" content="Aura is a free, private health app for iPhone. Track sleep, recovery, HRV, strain and body age. Works with WHOOP 4.0, 5.0 and MG straps without a subscription, smart scales and Apple Health.">
+<link rel="canonical" href="https://gdorgian.github.io/aura/">
+<meta name="theme-color" content="#07090f">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aura: your health, understood. Privately.">
+<meta property="og:description" content="Free iPhone health app. Sleep, recovery, HRV, strain and body age. Works with WHOOP straps without a subscription.">
+<meta property="og:url" content="https://gdorgian.github.io/aura/">
+<meta property="og:image" content="https://gdorgian.github.io/aura/images/1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Busy__K">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MobileApplication","name":"Aura","operatingSystem":"iOS","applicationCategory":"HealthApplication","description":"Free, private health app for iPhone: sleep, recovery, HRV, strain, training and body age. Works with WHOOP 4.0, 5.0 and MG straps without a subscription, Bluetooth smart scales and Apple Health.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://github.com/gdorgian/aura/releases/latest","image":"https://gdorgian.github.io/aura/icon.png","screenshot":"https://gdorgian.github.io/aura/images/1.jpg","url":"https://gdorgian.github.io/aura/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Can I use my WHOOP strap without a membership?","acceptedAnswer":{"@type":"Answer","text":"Yes. Aura reads WHOOP 4.0, 5.0 and MG straps directly over Bluetooth on your iPhone, with no WHOOP membership or subscription. It never logs in to a WHOOP account or a WHOOP server."}},
+{"@type":"Question","name":"Which devices work with Aura?","acceptedAnswer":{"@type":"Answer","text":"WHOOP 4.0, 5.0 and MG straps, 38 Bluetooth smart scales and Apple Health. Aura also brings in your history from Strava, Hevy and other apps."}},
+{"@type":"Question","name":"What does Aura track?","acceptedAnswer":{"@type":"Answer","text":"Sleep stages and sleep score, recovery, HRV, resting heart rate, strain, workouts, SpO2, skin temperature, body age, weight and bloodwork."}},
+{"@type":"Question","name":"Is Aura free? Is it on the App Store?","acceptedAnswer":{"@type":"Answer","text":"Aura is free, with no ads and no account. It is not on the App Store: you install the IPA with SideStore, AltStore or Sideloadly. Updates arrive inside the app."}},
+{"@type":"Question","name":"Does my health data leave my phone?","acceptedAnswer":{"@type":"Answer","text":"Your health data is worked out and kept on your iPhone. Apple Health, Strava, Hevy and the optional Biscuit AI get data only if you turn them on."}}
+]}
+</script>
+<style>
+:root{
+  --bg:#07090f; --bg2:#0d1119; --card:#111622; --line:#1c2333;
+  --text:#eef2f8; --muted:#94a0b4; --blue:#3fb3f0; --blue2:#8fd4f7; --green:#3ddc84; --violet:#8b7cf6;
+  --r:22px; --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font:17px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",system-ui,sans-serif;letter-spacing:-.025em;line-height:1.08}
+h2{font-size:clamp(32px,5vw,52px);font-weight:700}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue2)}
+.lead{color:var(--muted);font-size:clamp(17px,2vw,20px);max-width:620px}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:10;backdrop-filter:saturate(1.4) blur(18px);-webkit-backdrop-filter:saturate(1.4) blur(18px);background:rgba(7,9,15,.6);border-bottom:1px solid rgba(255,255,255,.05)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;font-size:18px}
+.brand img{width:30px;height:30px;border-radius:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:linear-gradient(180deg,#58c3f5,#1e9be0);color:#03121c;box-shadow:0 8px 30px -8px rgba(63,179,240,.7)}
+.btn-primary:hover{box-shadow:0 12px 40px -8px rgba(63,179,240,.9);transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{background:rgba(255,255,255,.07)}
+nav .btn{padding:8px 16px;font-size:14px}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;padding:110px 0 70px;overflow:hidden}
+.stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 20% 30%,#fff8,transparent),radial-gradient(1px 1px at 70% 20%,#fff6,transparent),radial-gradient(1px 1px at 40% 80%,#fff5,transparent),radial-gradient(1px 1px at 85% 65%,#fff7,transparent),radial-gradient(1px 1px at 10% 70%,#fff4,transparent),radial-gradient(1.5px 1.5px at 55% 45%,#fff5,transparent);opacity:.6;animation:twinkle 6s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:.25}}
+.orb-stage{position:relative;width:min(340px,70vw);aspect-ratio:1;margin:0 auto 34px}
+.halo{position:absolute;inset:-35%;border-radius:50%;background:radial-gradient(circle,rgba(63,179,240,.35),rgba(139,124,246,.12) 45%,transparent 68%);filter:blur(10px);animation:breathe 7s var(--ease) infinite}
+.orb{position:absolute;inset:0;background:radial-gradient(circle at 38% 32%,#bfe9ff 0%,#5cc4f6 28%,#1d8fd6 62%,#0b4f86 100%);box-shadow:inset -18px -26px 60px rgba(4,30,60,.55),inset 14px 14px 40px rgba(255,255,255,.25),0 0 80px rgba(63,179,240,.55);animation:morph 12s ease-in-out infinite,breathe 7s var(--ease) infinite;will-change:border-radius,transform}
+.orb::after{content:"";position:absolute;inset:0;border-radius:inherit;background:conic-gradient(from 0deg,transparent,rgba(139,124,246,.35),transparent 40%,rgba(61,220,132,.25),transparent 75%);mix-blend-mode:screen;animation:spin 14s linear infinite}
+.ring{position:absolute;inset:-14%;border-radius:50%;border:1px dashed rgba(143,212,247,.18);animation:spin 60s linear infinite}
+.ring.two{inset:-26%;border-style:solid;border-color:rgba(143,212,247,.06);animation-duration:90s;animation-direction:reverse}
+@keyframes morph{0%,100%{border-radius:50% 50% 50% 50%/50% 50% 50% 50%}25%{border-radius:58% 42% 54% 46%/46% 56% 44% 54%}50%{border-radius:46% 54% 42% 58%/56% 44% 58% 42%}75%{border-radius:53% 47% 57% 43%/43% 53% 47% 57%}}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero h1{font-size:clamp(44px,8vw,88px);font-weight:800}
+.grad{background:linear-gradient(90deg,var(--blue2),var(--blue) 40%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{margin:20px auto 32px}
+.ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.chip{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.02)}
+
+/* sections */
+section{padding:110px 0}
+.head{text-align:center;margin-bottom:56px}
+.head .lead{margin:16px auto 0}
+
+/* gallery */
+.gallery{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 20px 30px;scrollbar-width:none;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.gallery::-webkit-scrollbar{display:none}
+.shot{flex:0 0 auto;width:min(260px,70vw);scroll-snap-align:center;text-align:center}
+.shot img{width:100%;height:auto;border-radius:26px;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);transition:transform .5s var(--ease)}
+.shot:hover img{transform:translateY(-6px) scale(1.015)}
+.shot p{margin-top:14px;font-size:15px;color:var(--muted)}
+
+/* features */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{position:relative;background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:var(--r);padding:28px;overflow:hidden;transition:border-color .3s,transform .4s var(--ease)}
+.card:hover{border-color:#2a3550;transform:translateY(-3px)}
+.card::before{content:"";position:absolute;width:220px;height:220px;right:-80px;top:-80px;border-radius:50%;background:radial-gradient(circle,var(--glow,rgba(63,179,240,.18)),transparent 70%)}
+.ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;margin-bottom:18px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+.ic svg{width:22px;height:22px}
+.card h3{font-size:21px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:16px}
+
+/* devices */
+.devices{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.dev{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--bg2)}
+.dev b{display:block;font-size:19px;margin-bottom:6px}
+.dev span{color:var(--muted);font-size:15px}
+
+/* privacy band */
+.band{border:1px solid var(--line);border-radius:32px;padding:clamp(32px,6vw,72px);background:radial-gradient(120% 140% at 0% 0%,rgba(63,179,240,.14),transparent 50%),radial-gradient(120% 140% at 100% 100%,rgba(61,220,132,.10),transparent 50%),var(--bg2);display:grid;gap:28px;grid-template-columns:1.2fr 1fr;align-items:center}
+.band ul{list-style:none;display:grid;gap:14px}
+.band li{display:flex;gap:12px;align-items:flex-start;color:var(--text)}
+.band li::before{content:"";flex:0 0 8px;height:8px;margin-top:9px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+
+/* faq */
+.faq{max-width:780px;margin:0 auto}
+details{border-bottom:1px solid var(--line);padding:22px 4px}
+summary{cursor:pointer;list-style:none;font-weight:600;font-size:19px;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--blue2);font-size:24px;line-height:1;transition:transform .3s var(--ease)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:12px}
+
+/* final */
+.final{text-align:center}
+.final .orb-stage{width:140px;margin-bottom:28px}
+footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+footer a{text-decoration:none}
+footer a:hover{color:var(--text)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.grid .reveal:nth-child(2),.devices .reveal:nth-child(2){transition-delay:.08s}
+.grid .reveal:nth-child(3),.devices .reveal:nth-child(3){transition-delay:.16s}
+.grid .reveal:nth-child(4){transition-delay:.06s}
+.grid .reveal:nth-child(5){transition-delay:.14s}
+.grid .reveal:nth-child(6){transition-delay:.22s}
+
+@media (max-width:760px){
+  .band{grid-template-columns:1fr}
+  section{padding:80px 0}
+  nav .hide-sm{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="icon.png" alt="" width="30" height="30">Aura</a>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a class="btn btn-ghost hide-sm" href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="https://github.com/gdorgian/aura/releases/latest">Download</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="orb-stage" aria-hidden="true">
+      <div class="halo"></div><div class="ring two"></div><div class="ring"></div><div class="orb"></div>
+    </div>
+    <h1>Your health,<br><span class="grad">understood.</span></h1>
+    <p class="lead">Aura is a free, private health app for iPhone. Sleep better, recover smarter, train with purpose and see how you're aging, one day at a time.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="https://github.com/gdorgian/aura/releases/latest">Download Aura for iPhone</a>
+      <a class="btn btn-ghost" href="#features">See what it does</a>
+    </div>
+    <div class="chips">
+      <span class="chip">Free</span><span class="chip">No account</span><span class="chip">Works with WHOOP</span><span class="chip">Smart scales</span><span class="chip">Apple Health</span>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="screens">
+  <div class="wrap head reveal">
+    <p class="eyebrow">Inside Aura</p>
+    <h2>Calm on the surface.<br>Deep when you want it.</h2>
+  </div>
+  <div class="gallery">
+    <figure class="shot reveal"><img src="images/1.jpg" alt="Aura Today screen with sleep and recovery" width="506" height="1100" loading="lazy"><p>A calmer Today</p></figure>
+    <figure class="shot reveal"><img src="images/6.jpg" alt="Aura body age screen" width="506" height="1100" loading="lazy"><p>Your body age</p></figure>
+    <figure class="shot reveal"><img src="images/3.jpg" alt="Log anything in Aura" width="506" height="1100" loading="lazy"><p>Log anything</p></figure>
+    <figure class="shot reveal"><img src="images/4.jpg" alt="Aura timeline and journal" width="506" height="1100" loading="lazy"><p>Timeline and Journal</p></figure>
+    <figure class="shot reveal"><img src="images/5.jpg" alt="Aura goals and streaks" width="506" height="1100" loading="lazy"><p>Goals and streaks</p></figure>
+    <figure class="shot reveal"><img src="images/2.jpg" alt="Biscuit, the optional AI companion in Aura" width="506" height="1100" loading="lazy"><p>Biscuit, your companion</p></figure>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Everything in one place</p>
+      <h2>One app for how you<br>sleep, recover and train.</h2>
+    </div>
+    <div class="grid">
+      <article class="card reveal" style="--glow:rgba(139,124,246,.22)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#b3a8ff" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div><h3>Sleep and recovery</h3><p>Sleep stages, sleep score, HRV and resting heart rate. How well you rested, and what it means for today.</p></article>
+      <article class="card reveal" style="--glow:rgba(61,220,132,.2)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#3ddc84" stroke-width="2" stroke-linecap="round"><path d="M12 21C7 17 3 13.5 3 9a4.5 4.5 0 0 1 9-1 4.5 4.5 0 0 1 9 1c0 4.5-4 8-9 12z"/></svg></div><h3>Your body age</h3><p>What adds years, and what takes them off. Watch it move as your habits change.</p></article>
+      <article class="card reveal" style="--glow:rgba(255,160,70,.18)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ffb067" stroke-width="2" stroke-linecap="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Strain and training</h3><p>Sessions, routines, routes and your progress. Export FIT, TCX or GPX, with Strava and Hevy built in.</p></article>
+      <article class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#8fd4f7" stroke-width="2" stroke-linecap="round"><path d="M4 20h16M6 16l4-4 3 3 5-6"/></svg></div><h3>Your journey</h3><p>Goals, streaks, bloodwork, weight and a daily journal. See the long story, not just today.</p></article>
+      <article class="card reveal" style="--glow:rgba(63,179,240,.2)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#8fd4f7" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><h3>Log anything</h3><p>Type it the way you'd say it: coffee, sauna, a late meal. Aura sorts it out on your phone.</p></article>
+      <article class="card reveal" style="--glow:rgba(255,120,170,.18)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9cc4" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M8.5 15a4.5 4.5 0 0 0 7 0"/></svg></div><h3>Biscuit</h3><p>An optional AI companion that reads your own data and talks it through with you.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="devices">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Works with</p>
+      <h2>Bring the devices<br>you already own.</h2>
+    </div>
+    <div class="devices">
+      <div class="dev reveal"><b>WHOOP 4.0, 5.0 and MG</b><span>Read directly over Bluetooth. No WHOOP membership or subscription.</span></div>
+      <div class="dev reveal"><b>38 smart scales</b><span>Weight and body composition, straight into your Trends.</span></div>
+      <div class="dev reveal"><b>Apple Health</b><span>Read and write every type Apple offers.</span></div>
+      <div class="dev reveal"><b>Strava, Hevy and more</b><span>Bring your history in. Send sessions out with heart rate.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="wrap">
+    <div class="band reveal">
+      <div>
+        <p class="eyebrow">Private by design</p>
+        <h2 style="margin:12px 0 16px">Your data lives<br>on your phone.</h2>
+        <p class="lead">Aura works everything out on your iPhone. Nothing goes anywhere unless you turn it on.</p>
+      </div>
+      <ul>
+        <li>No account and no sign-in</li>
+        <li>No subscription and no ads</li>
+        <li>No cloud: your health data stays on your iPhone</li>
+        <li>Apple Health, Strava, Hevy and Biscuit only when you turn them on</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">FAQ</p><h2>Questions, answered.</h2></div>
+    <div class="faq">
+      <details class="reveal"><summary>Can I use my WHOOP strap without a membership?</summary><p>Yes. Aura reads WHOOP 4.0, 5.0 and MG straps directly over Bluetooth on your iPhone, with no WHOOP membership or subscription. It never logs in to a WHOOP account or a WHOOP server.</p></details>
+      <details class="reveal"><summary>Which devices work with Aura?</summary><p>WHOOP 4.0, 5.0 and MG straps, 38 Bluetooth smart scales and Apple Health. Aura also brings in your history from Strava, Hevy and other apps.</p></details>
+      <details class="reveal"><summary>What does Aura track?</summary><p>Sleep stages and sleep score, recovery, HRV, resting heart rate, strain, workouts, SpO₂, skin temperature, body age, weight and bloodwork.</p></details>
+      <details class="reveal"><summary>Is Aura free? Is it on the App Store?</summary><p>Aura is free, with no ads and no account. It isn't on the App Store: you install the IPA with SideStore, AltStore or Sideloadly. Updates arrive inside the app.</p></details>
+      <details class="reveal"><summary>Does my health data leave my phone?</summary><p>Your health data is worked out and kept on your iPhone. Apple Health, Strava, Hevy and the optional Biscuit AI get data only if you turn them on.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap reveal">
+    <div class="orb-stage" aria-hidden="true"><div class="halo"></div><div class="orb"></div></div>
+    <h2>Meet your Aura.</h2>
+    <p class="lead" style="margin:16px auto 30px">Free for iPhone. Install it once, and updates arrive inside the app.</p>
+    <a class="btn btn-primary" href="https://github.com/gdorgian/aura/releases/latest">Download Aura</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Aura is not a medical device. Unofficial: not made by or affiliated with WHOOP, Inc.</span>
+    <span><a href="https://github.com/gdorgian/aura">GitHub</a> · <a href="https://github.com/gdorgian/aura/issues">Report a bug</a> · <a href="https://x.com/Busy__K">𝕏</a></span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+  els.forEach(e => io.observe(e));
+})();
+</script>
+</body>
+</html>

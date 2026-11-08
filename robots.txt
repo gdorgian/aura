@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gdorgian.github.io/aura/sitemap.xml

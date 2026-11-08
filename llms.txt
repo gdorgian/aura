@@ -1,0 +1,12 @@
+# Aura
+
+> Aura is a free, private health app for iPhone. It tracks sleep, recovery, HRV, strain, training and body age. It works with WHOOP 4.0, 5.0 and MG straps without a WHOOP subscription, 38 Bluetooth smart scales and Apple Health. No account, no ads, no cloud. Not a medical device. Unofficial: not affiliated with WHOOP, Inc.
+
+- [Download (latest release)](https://github.com/gdorgian/aura/releases/latest): IPA, installed with SideStore, AltStore or Sideloadly
+- [GitHub](https://github.com/gdorgian/aura): README, FAQ and issues
+
+## FAQ
+- Use a WHOOP strap without a membership? Yes, Aura reads the strap over Bluetooth and never contacts WHOOP servers.
+- Devices: WHOOP 4.0, 5.0, MG; 38 smart scales; Apple Health; imports from Strava, Hevy and other apps.
+- Tracks: sleep stages and score, recovery, HRV, resting heart rate, strain, workouts, SpO2, skin temperature, body age, weight, bloodwork.
+- Price: free. Not on the App Store.
