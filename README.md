@@ -1,6 +1,6 @@
 # Aura: private health tracking for iPhone
 
-*Your health, understood. Privately.*
+*Your health, understood. Privately.* · **[gdorgian.github.io/aura](https://gdorgian.github.io/aura/)**
 
 Aura is a free health app for iPhone that helps you sleep better, recover smarter, train with purpose and see how you're aging, one day at a time. It tracks sleep, recovery, HRV, strain and body age from your wearable, smart scale and Apple Health.
 
