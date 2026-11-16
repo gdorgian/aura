@@ -23,9 +23,10 @@
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Can I use my WHOOP strap without a membership?","acceptedAnswer":{"@type":"Answer","text":"Yes. Aura reads WHOOP 4.0, 5.0 and MG straps directly over Bluetooth on your iPhone, with no WHOOP membership or subscription. It never logs in to a WHOOP account or a WHOOP server."}},
 {"@type":"Question","name":"Which devices work with Aura?","acceptedAnswer":{"@type":"Answer","text":"WHOOP 4.0, 5.0 and MG straps, 38 Bluetooth smart scales and Apple Health. Aura also brings in your history from Strava, Hevy and other apps."}},
-{"@type":"Question","name":"What does Aura track?","acceptedAnswer":{"@type":"Answer","text":"Sleep stages and sleep score, recovery, HRV, resting heart rate, strain, workouts, SpO2, skin temperature, body age, weight and bloodwork."}},
-{"@type":"Question","name":"Is Aura free? Is it on the App Store?","acceptedAnswer":{"@type":"Answer","text":"Aura is free, with no ads and no account. It is not on the App Store: you install the IPA with SideStore, AltStore or Sideloadly. Updates arrive inside the app."}},
-{"@type":"Question","name":"Does my health data leave my phone?","acceptedAnswer":{"@type":"Answer","text":"Your health data is worked out and kept on your iPhone. Apple Health, Strava, Hevy and the optional Biscuit AI get data only if you turn them on."}}
+{"@type":"Question","name":"What does Aura track?","acceptedAnswer":{"@type":"Answer","text":"Sleep stages and sleep score, recovery, HRV, resting heart rate, strain, workouts, SpO2, skin temperature, body age, weight, bloodwork, food and water."}},
+{"@type":"Question","name":"Is Aura free? Is it on the App Store?","acceptedAnswer":{"@type":"Answer","text":"Aura is free, with no ads and no account. It is not on the App Store: you install the IPA with SideStore, AltStore or Sideloadly. Updates arrive inside the app. Use SideStore or AltStore? Add the Aura source and updates show up there too."}},
+{"@type":"Question","name":"Does my health data leave my phone?","acceptedAnswer":{"@type":"Answer","text":"Your health data is worked out and kept on your iPhone. Apple Health, Strava, Hevy and the optional Biscuit AI get data only if you turn them on. If you turn on AI food estimates, your photo goes to the AI provider you chose."}},
+{"@type":"Question","name":"Which languages does Aura speak?","acceptedAnswer":{"@type":"Answer","text":"English, Georgian, German and Russian."}}
 ]}
 </script>
 <style>
@@ -201,12 +202,13 @@ footer a:hover{color:var(--text)}
   <div class="wrap">
     <div class="head reveal">
       <p class="eyebrow">Everything in one place</p>
-      <h2>One app for how you<br>sleep, recover and train.</h2>
+      <h2>One app for how you<br>sleep, recover, eat and train.</h2>
     </div>
     <div class="grid">
       <article class="card reveal" style="--glow:rgba(139,124,246,.22)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#b3a8ff" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div><h3>Sleep and recovery</h3><p>Sleep stages, sleep score, HRV and resting heart rate. How well you rested, and what it means for today.</p></article>
       <article class="card reveal" style="--glow:rgba(61,220,132,.2)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#3ddc84" stroke-width="2" stroke-linecap="round"><path d="M12 21C7 17 3 13.5 3 9a4.5 4.5 0 0 1 9-1 4.5 4.5 0 0 1 9 1c0 4.5-4 8-9 12z"/></svg></div><h3>Your body age</h3><p>What adds years, and what takes them off. Watch it move as your habits change.</p></article>
       <article class="card reveal" style="--glow:rgba(255,160,70,.18)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ffb067" stroke-width="2" stroke-linecap="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Strain and training</h3><p>Sessions, routines, routes and your progress. Export FIT, TCX or GPX, with Strava and Hevy built in.</p></article>
+      <article class="card reveal" style="--glow:rgba(60,215,201,.2)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#3cd7c9" stroke-width="2" stroke-linecap="round"><path d="M12 3c3.5 4.2 6 7.6 6 10.5a6 6 0 0 1-12 0C6 10.6 8.5 7.2 12 3z"/></svg></div><h3>Food and water</h3><p>Search a food, scan a barcode or show Svea a photo. A water goal from your body and the weather.</p></article>
       <article class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#8fd4f7" stroke-width="2" stroke-linecap="round"><path d="M4 20h16M6 16l4-4 3 3 5-6"/></svg></div><h3>Your journey</h3><p>Goals, streaks, bloodwork, weight and a daily journal. See the long story, not just today.</p></article>
       <article class="card reveal" style="--glow:rgba(63,179,240,.2)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#8fd4f7" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><h3>Log anything</h3><p>Type it the way you'd say it: coffee, sauna, a late meal. Aura sorts it out on your phone.</p></article>
       <article class="card reveal" style="--glow:rgba(255,120,170,.18)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9cc4" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M8.5 15a4.5 4.5 0 0 0 7 0"/></svg></div><h3>Biscuit</h3><p>An optional AI companion that reads your own data and talks it through with you.</p></article>
@@ -253,9 +255,10 @@ footer a:hover{color:var(--text)}
     <div class="faq">
       <details class="reveal"><summary>Can I use my WHOOP strap without a membership?</summary><p>Yes. Aura reads WHOOP 4.0, 5.0 and MG straps directly over Bluetooth on your iPhone, with no WHOOP membership or subscription. It never logs in to a WHOOP account or a WHOOP server.</p></details>
       <details class="reveal"><summary>Which devices work with Aura?</summary><p>WHOOP 4.0, 5.0 and MG straps, 38 Bluetooth smart scales and Apple Health. Aura also brings in your history from Strava, Hevy and other apps.</p></details>
-      <details class="reveal"><summary>What does Aura track?</summary><p>Sleep stages and sleep score, recovery, HRV, resting heart rate, strain, workouts, SpO₂, skin temperature, body age, weight and bloodwork.</p></details>
-      <details class="reveal"><summary>Is Aura free? Is it on the App Store?</summary><p>Aura is free, with no ads and no account. It isn't on the App Store: you install the IPA with SideStore, AltStore or Sideloadly. Updates arrive inside the app.</p></details>
-      <details class="reveal"><summary>Does my health data leave my phone?</summary><p>Your health data is worked out and kept on your iPhone. Apple Health, Strava, Hevy and the optional Biscuit AI get data only if you turn them on.</p></details>
+      <details class="reveal"><summary>What does Aura track?</summary><p>Sleep stages and sleep score, recovery, HRV, resting heart rate, strain, workouts, SpO₂, skin temperature, body age, weight, bloodwork, food and water.</p></details>
+      <details class="reveal"><summary>Is Aura free? Is it on the App Store?</summary><p>Aura is free, with no ads and no account. It isn't on the App Store: you install the IPA with SideStore, AltStore or Sideloadly. Updates arrive inside the app. Use SideStore or AltStore? Add the Aura source and updates show up there too.</p></details>
+      <details class="reveal"><summary>Does my health data leave my phone?</summary><p>Your health data is worked out and kept on your iPhone. Apple Health, Strava, Hevy and the optional Biscuit AI get data only if you turn them on. If you turn on AI food estimates, your photo goes to the AI provider you chose.</p></details>
+      <details class="reveal"><summary>Which languages does Aura speak?</summary><p>English, Georgian, German and Russian.</p></details>
     </div>
   </div>
 </section>
