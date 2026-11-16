@@ -1,0 +1,122 @@
+{
+  "name": "Aura",
+  "identifier": "io.github.gdorgian.aura.source",
+  "sourceURL": "https://raw.githubusercontent.com/gdorgian/aura/main/sidestore-source.json",
+  "subtitle": "Aura releases for SideStore and AltStore.",
+  "description": "Every Aura release, straight from github.com/gdorgian/aura.",
+  "iconURL": "https://raw.githubusercontent.com/gdorgian/aura/main/images/icon.png",
+  "website": "https://github.com/gdorgian/aura",
+  "tintColor": "17A2E6",
+  "apps": [
+    {
+      "name": "Aura",
+      "bundleIdentifier": "com.noopapp.noop",
+      "developerName": "Aura",
+      "subtitle": "Your strap, read on your phone.",
+      "localizedDescription": "Aura reads the strap you own over Bluetooth and works out sleep, recovery, strain and more on the phone. No account and no cloud.\n\nThe IPA is unsigned on purpose: SideStore or AltStore signs it with your own Apple ID. Apple Health needs a paid developer account; with a free one, Aura can send to Apple Health through Shortcuts.",
+      "iconURL": "https://raw.githubusercontent.com/gdorgian/aura/main/images/icon.png",
+      "tintColor": "17A2E6",
+      "category": "lifestyle",
+      "screenshotURLs": [
+        "https://raw.githubusercontent.com/gdorgian/aura/main/images/1.jpg",
+        "https://raw.githubusercontent.com/gdorgian/aura/main/images/2.jpg",
+        "https://raw.githubusercontent.com/gdorgian/aura/main/images/3.jpg",
+        "https://raw.githubusercontent.com/gdorgian/aura/main/images/4.jpg",
+        "https://raw.githubusercontent.com/gdorgian/aura/main/images/5.jpg",
+        "https://raw.githubusercontent.com/gdorgian/aura/main/images/6.jpg"
+      ],
+      "appPermissions": {
+        "entitlements": [
+          "com.apple.developer.healthkit",
+          "com.apple.developer.healthkit.access",
+          "com.apple.developer.healthkit.background-delivery",
+          "com.apple.security.application-groups"
+        ],
+        "privacy": {
+          "NSAlarmKitUsageDescription": "Aura rings your wake alarm on the phone after the strap buzz, and the streak alarm if you turn it on, even on silent.",
+          "NSBluetoothAlwaysUsageDescription": "Noop connects directly to your WHOOP strap to read heart rate, R-R intervals, battery and sensor data on your iPhone. Sharing occurs only through an export, backup, Apple Health write or Svea provider you explicitly enable.",
+          "NSCameraUsageDescription": "Aura opens the camera only when you choose to: to scan a food's barcode or label, or to put today's numbers on a photo. Pictures stay on your iPhone unless you share them.",
+          "NSHealthClinicalHealthRecordsShareUsageDescription": "Noop does not read clinical health records. This appears only because the certificate used to sign Noop grants that capability.",
+          "NSHealthShareUsageDescription": "Noop reads the Apple Health data types you approve to compute recovery, effort and sleep. They stay local unless you explicitly export, back up or consent to share a category with a configured Svea provider.",
+          "NSHealthUpdateUsageDescription": "Noop writes the metrics it computes from your strap back into Apple Health, on-device and only when you allow it.",
+          "NSLocationWhenInUseUsageDescription": "Noop records your route during an outdoor workout to show distance, pace and a map, including while the screen is off. The route is stored locally unless you export or back up the activity.",
+          "NSMicrophoneUsageDescription": "Noop uses the microphone only when you ask Svea a question by voice. Audio is transcribed on your iPhone; only the resulting text can be sent to the provider you configured.",
+          "NSMotionUsageDescription": "Noop reads your iPhone's step count and barometer during a workout, for its steps and the height climbed, and shows them in the activity summary. It stays local unless you export or back up the activity.",
+          "NSPhotoLibraryAddUsageDescription": "Aura saves the share cards you make to your photo library when you tap Save.",
+          "NSSpeechRecognitionUsageDescription": "Noop transcribes your spoken question on your iPhone so you can ask Svea without typing. Audio is not sent to the configured AI provider."
+        }
+      },
+      "versions": [
+        {
+          "version": "12.2.0",
+          "buildVersion": "1247",
+          "date": "2026-11-16",
+          "localizedDescription": "Aura 12.2.0. The release notes say what is new.",
+          "downloadURL": "https://github.com/gdorgian/aura/releases/download/v12.2.0/Noop-Aura-iOS-unsigned-v12.2.0-aura.1247.ipa",
+          "size": 365075392,
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "12.1.7",
+          "buildVersion": "1246",
+          "date": "2026-11-08",
+          "localizedDescription": "Aura 12.1.7. The release notes say what is new.",
+          "downloadURL": "https://github.com/gdorgian/aura/releases/download/v12.1.7/Noop-Aura-iOS-unsigned-v12.1.7-aura.1246.ipa",
+          "size": 332994476,
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "12.1.6",
+          "buildVersion": "1245",
+          "date": "2026-11-07",
+          "localizedDescription": "Aura 12.1.6. The release notes say what is new.",
+          "downloadURL": "https://github.com/gdorgian/aura/releases/download/v12.1.6/Noop-Aura-iOS-unsigned-v12.1.6-aura.1245.ipa",
+          "size": 332511876,
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "12.1.5",
+          "buildVersion": "1244",
+          "date": "2026-11-05",
+          "localizedDescription": "Aura 12.1.5. The release notes say what is new.",
+          "downloadURL": "https://github.com/gdorgian/aura/releases/download/v12.1.5/Noop-Aura-iOS-unsigned-v12.1.5-aura.1244.ipa",
+          "size": 304268828,
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "12.1.4",
+          "buildVersion": "1243",
+          "date": "2026-11-03",
+          "localizedDescription": "Aura 12.1.4. The release notes say what is new.",
+          "downloadURL": "https://github.com/gdorgian/aura/releases/download/v12.1.4/Noop-Aura-iOS-unsigned-v12.1.4-aura.1243.ipa",
+          "size": 303703540,
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "12.1.3",
+          "buildVersion": "1241",
+          "date": "2026-11-03",
+          "localizedDescription": "Aura 12.1.3. The release notes say what is new.",
+          "downloadURL": "https://github.com/gdorgian/aura/releases/download/v12.1.3/Noop-Aura-iOS-unsigned-v12.1.3-aura.1241.ipa",
+          "size": 303485599,
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "12.1.2",
+          "buildVersion": "1240",
+          "date": "2026-11-02",
+          "localizedDescription": "Aura 12.1.2. The release notes say what is new.",
+          "downloadURL": "https://github.com/gdorgian/aura/releases/download/v12.1.2/Noop-Aura-iOS-unsigned-v12.1.2-aura.1240.ipa",
+          "size": 303391499,
+          "minOSVersion": "17.0"
+        }
+      ],
+      "version": "12.2.0",
+      "versionDate": "2026-11-16",
+      "versionDescription": "Aura 12.2.0. The release notes say what is new.",
+      "downloadURL": "https://github.com/gdorgian/aura/releases/download/v12.2.0/Noop-Aura-iOS-unsigned-v12.2.0-aura.1247.ipa",
+      "size": 365075392
+    }
+  ],
+  "news": []
+}
